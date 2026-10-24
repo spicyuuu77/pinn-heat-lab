@@ -4,6 +4,7 @@ import torch
 # 定义精确解函数。
 # t：时间；x：空间位置；alpha：热扩散系数，默认值为 1.0
 def exact_solution(t, x, alpha=1.0):
+    # 计算 PDE 的精确解 u(t, x) = exp(-alpha * pi² * t) * sin(pi * x)
     # 计算 exp(-alpha * pi² * t) * sin(pi * x)
     # torch.exp(...) 计算自然指数 e 的幂
     # torch.sin(...) 计算正弦值
