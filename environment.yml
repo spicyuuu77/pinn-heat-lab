@@ -1,0 +1,6 @@
+name: pinn-heat-lab
+channels:
+  - defaults
+dependencies:
+  - python=3.10.10
+  - pip

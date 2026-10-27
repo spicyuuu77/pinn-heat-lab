@@ -1,0 +1,40 @@
+{
+  "config": {
+    "method": "standard",
+    "time_sampling": "independent",
+    "time_stream_seed": 1042,
+    "pde_points_per_step": 192,
+    "seed": 42,
+    "n_steps": 5000,
+    "N": 50,
+    "n_space_copies": 4,
+    "n_samples": 100,
+    "alpha": 1.0,
+    "hidden_layers": 6,
+    "hidden_width": 50,
+    "activation": "Tanh",
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "optimizer": "Adam",
+    "initial_learning_rate": 0.001,
+    "scheduler_step_size": 1000,
+    "scheduler_gamma": 0.5,
+    "loss_weights": [
+      1.0,
+      0.5,
+      0.5
+    ],
+    "evaluation_shape": [
+      101,
+      201
+    ]
+  },
+  "training_seconds": 48.48137839999981,
+  "metrics": {
+    "MAE": 0.007602764293551445,
+    "relative_L2": 0.06203807145357132,
+    "initial_max_error": 0.02809828519821167,
+    "left_boundary_max_error": 0.0495540015399456,
+    "right_boundary_max_error": 0.043575990945100784
+  }
+}

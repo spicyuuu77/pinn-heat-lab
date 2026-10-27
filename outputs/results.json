@@ -1,0 +1,99 @@
+{
+  "status": "Basic reproduction complete; accuracy optimization pending.",
+  "common_config": {
+    "seed": 42,
+    "n_steps": 5000,
+    "alpha": 1.0,
+    "hidden_layers": 6,
+    "hidden_width": 50,
+    "activation": "Tanh",
+    "input_order": [
+      "t",
+      "x"
+    ],
+    "device": "cpu",
+    "dtype": "float32",
+    "optimizer": "Adam",
+    "initial_learning_rate": 0.001,
+    "scheduler_step_size": 1000,
+    "scheduler_gamma": 0.5,
+    "loss_weights": [
+      1.0,
+      0.5,
+      0.5
+    ],
+    "evaluation_shape": [
+      101,
+      201
+    ],
+    "n_initial_samples": 100,
+    "n_boundary_times": 100
+  },
+  "runs": [
+    {
+      "id": "historical",
+      "method": "standard",
+      "sampling": "100 independently sampled interior (t, x) points per step",
+      "model": "outputs/model_seed42_steps5000.pt",
+      "history": "outputs/loss_seed42_steps5000.pt",
+      "metrics": {
+        "MAE": 0.008558978326618671,
+        "relative_L2": 0.06914420425891876,
+        "initial_max_error": 0.04612940549850464,
+        "left_boundary_max_error": 0.041934508830308914,
+        "right_boundary_max_error": 0.060038041323423386
+      },
+      "training_seconds": null,
+      "timing_source": "not recorded"
+    },
+    {
+      "id": "standard_grouped",
+      "method": "standard",
+      "sampling": "4 shared times x 50 spatial nodes; 192 interior residuals per step",
+      "model": "outputs/model_compare_demo2_standard_seed42_N50_nt4_steps5000.pt",
+      "history": "outputs/loss_compare_demo2_standard_seed42_N50_nt4_steps5000.pt",
+      "metrics": {
+        "MAE": 0.013932861387729645,
+        "relative_L2": 0.11237432062625885,
+        "initial_max_error": 0.04880243539810181,
+        "left_boundary_max_error": 0.0878591239452362,
+        "right_boundary_max_error": 0.0783480703830719
+      },
+      "training_seconds": 42.28181439999753,
+      "timing_source": "metrics_compare_demo2_standard_seed42_N50_nt4_steps5000.json"
+    },
+    {
+      "id": "hybrid_grouped",
+      "method": "hybrid",
+      "sampling": "4 shared times x 50 spatial nodes; 192 interior residuals per step",
+      "model": "outputs/hybrid_model_seed42_steps5000.pt",
+      "history": "outputs/hybrid_loss_seed42_steps5000.pt",
+      "metrics": {
+        "MAE": 0.01368255726993084,
+        "relative_L2": 0.11031993478536606,
+        "initial_max_error": 0.05086857080459595,
+        "left_boundary_max_error": 0.08791039884090424,
+        "right_boundary_max_error": 0.07314689457416534
+      },
+      "training_seconds": 26.1,
+      "timing_source": "User terminal screenshot, transcribed; original screenshot not included in repository."
+    },
+    {
+      "id": "standard_independent",
+      "method": "standard",
+      "sampling": "Same spatial nodes and 192 residuals; independent time per PDE input point",
+      "time_stream_seed": 1042,
+      "model": "outputs/model_time_sampling_demo3_independent_seed42_N50_copies4_steps5000.pt",
+      "history": "outputs/loss_time_sampling_demo3_independent_seed42_N50_copies4_steps5000.pt",
+      "metrics": {
+        "MAE": 0.007602764293551445,
+        "relative_L2": 0.06203807145357132,
+        "initial_max_error": 0.02809828519821167,
+        "left_boundary_max_error": 0.0495540015399456,
+        "right_boundary_max_error": 0.043575990945100784
+      },
+      "training_seconds": 48.48137839999981,
+      "timing_source": "metrics_time_sampling_demo3_independent_seed42_N50_copies4_steps5000.json"
+    }
+  ]
+}

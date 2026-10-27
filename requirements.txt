@@ -1,0 +1,4 @@
+# 先按 README 选择 CPU 或 CUDA 的官方 PyTorch 源，再安装本文件。
+torch==2.14.1
+numpy==1.23.5
+matplotlib==3.7.2

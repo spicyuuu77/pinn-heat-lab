@@ -151,7 +151,7 @@ if __name__ == "__main__":
             )
 
 
-        history = {
+    history = {
     "pde": history_pde,
     "ic": history_ic,
     "bc": history_bc,
@@ -161,6 +161,9 @@ if __name__ == "__main__":
     output_dir.mkdir(exist_ok=True)
 
     torch.save(history, output_dir / f"loss_seed42_steps{n_steps}.pt")
+    model_path = output_dir / f"model_seed42_steps{n_steps}.pt"
+    torch.save(net.state_dict(), model_path)
+    print("Model saved to:", model_path)
     net.eval()
     with torch.no_grad():
         # 在 [-1, 1] 内生成 201 个空间位置
