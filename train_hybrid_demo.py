@@ -54,12 +54,13 @@ n_samples = 100  # 初始条件和边界条件的采样数量
 n_steps = 5000  # 本轮先做短训练
 N = 50  # 每组空间网格点数
 n_times = 4  # 每一步抽取四个时间
+seed = 43 # 随机种子
 alpha = 1.0
 
 if __name__ == "__main__":
 
     # 设置随机种子以确保结果可复现
-    torch.manual_seed(42)
+    torch.manual_seed(seed)
     net = torch.nn.Sequential(
         torch.nn.Linear(2, 50),
         torch.nn.Tanh(),
@@ -178,8 +179,8 @@ if __name__ == "__main__":
     output_dir = Path(__file__).resolve().parent / "outputs"
     output_dir.mkdir(exist_ok=True)
 
-    torch.save(history, output_dir / f"hybrid_loss_seed42_steps{n_steps}.pt")
-    model_path = output_dir / f"hybrid_model_seed42_steps{n_steps}.pt"
+    torch.save(history, output_dir / f"hybrid_loss_seed{seed}_steps{n_steps}.pt")
+    model_path = output_dir / f"hybrid_model_seed{seed}_steps{n_steps}.pt"
     torch.save(net.state_dict(), model_path)
     print("Model saved to:", model_path)
     net.eval()

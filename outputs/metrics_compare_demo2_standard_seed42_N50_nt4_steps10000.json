@@ -1,0 +1,37 @@
+{
+  "config": {
+    "method": "standard",
+    "seed": 42,
+    "n_steps": 10000,
+    "N": 50,
+    "n_times": 4,
+    "n_samples": 100,
+    "alpha": 1.0,
+    "hidden_layers": 6,
+    "hidden_width": 50,
+    "activation": "Tanh",
+    "device": "cpu",
+    "dtype": "torch.float32",
+    "optimizer": "Adam",
+    "initial_learning_rate": 0.001,
+    "scheduler_step_size": 1000,
+    "scheduler_gamma": 0.5,
+    "loss_weights": [
+      1.0,
+      0.5,
+      0.5
+    ],
+    "evaluation_shape": [
+      101,
+      201
+    ]
+  },
+  "training_seconds": 73.60762890000024,
+  "metrics": {
+    "MAE": 0.012391320429742336,
+    "relative_L2": 0.10104785114526749,
+    "initial_max_error": 0.04658496379852295,
+    "left_boundary_max_error": 0.08063050359487534,
+    "right_boundary_max_error": 0.07056502252817154
+  }
+}

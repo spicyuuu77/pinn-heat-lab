@@ -166,7 +166,7 @@ def train(method, seed, n_steps, N, n_times, n_samples, alpha):
         optimizer.step()
         scheduler.step()
 
-        if (step + 1) % 200 == 0 or step + 1 == n_steps:
+        if (step + 1) % 500 == 0 or step + 1 == n_steps:
             print(
                 f"Step {step + 1}, PDE: {loss_pde.item():.6f}, "
                 f"IC: {loss_ic.item():.6f}, BC: {loss_bc.item():.6f}, "

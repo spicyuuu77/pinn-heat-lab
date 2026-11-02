@@ -9,6 +9,10 @@ __pycache__/
 .pytest_cache/
 .ipynb_checkpoints/
 
+# 图表工具临时目录和运行日志，不影响正式汇报材料。
+/.chart-data-*/
+/node.*.log
+
 # 本地草稿和短训练检查保留在电脑上，不纳入发布版本。
 /1.py
 /train_pinn_demo.py
